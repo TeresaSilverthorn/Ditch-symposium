@@ -1,6 +1,6 @@
 # R script and data for manuscript "Towards improved mitigation and accounting of greenhouse gas emissions from ditches and canals" (working title)
 #
-Publication counts were extracted from Web of Science via "Analyse results" > "Publication years" > "Download data table"
+Publication counts were extracted from Web of Science via "Analyse results" > "Publication years" > "Download data table" on July 23, 2025
 
 WOS topic searches (articles only): 
 
