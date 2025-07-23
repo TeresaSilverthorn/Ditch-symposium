@@ -13,10 +13,10 @@ mutate(term = "Ditch")
 
 head(ditch)
 
-stream_river <- fread("C:/Users/teres/Documents/Conferences/Ditch symposium/Ditch symposium output data/river_streams_data_table.txt") %>%
+stream_river <- fread("C:/Users/teres/Documents/Conferences/Ditch symposium/Ditch symposium output data/river_streams_data_table2.txt") %>%
 mutate(term = "Stream/River")
 
-lake <- fread("C:/Users/teres/Documents/Conferences/Ditch symposium/Ditch symposium output data/lake_data_table.txt") %>%   
+lake <- fread("C:/Users/teres/Documents/Conferences/Ditch symposium/Ditch symposium output data/lake_data_table2.txt") %>%   
 mutate(term = "Lake")
 
 dat <- bind_rows(ditch, stream_river, lake)
