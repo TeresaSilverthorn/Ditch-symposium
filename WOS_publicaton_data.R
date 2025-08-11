@@ -62,15 +62,31 @@ summary(lm_model)
 # Values above 1 indicate an increase in publications for that type of system compared with the previous year.
 # Values below 1 indicate a decrease.
 
-jpeg("Publications_ratio_plot.jpg", units="in", width=8, height=6, res=300)
+jpeg("Publications_ratio_plot_point.jpg", units="in", width=8, height=6, res=300)
 
-ratio_plot <- ggplot(subset(dat_ratio, `Publication Years` >= 1990 & `Publication Years` <= 2023 ), aes(x = `Publication Years`, y = Pub_Ratio, color = factor(term, levels = c( "Stream/River", "Lake", "Ditch" ))) ) +
+ratio_plot_point <- ggplot(subset(dat_ratio, `Publication Years` >= 1990 & `Publication Years` <= 2023 ), aes(x = `Publication Years`, y = Pub_Ratio, color = factor(term, levels = c( "Stream/River", "Lake", "Ditch" ))) ) +
   geom_hline(yintercept = 1, linetype = "dashed", color = "black") +
   scale_colour_manual(values = c( "Stream/River"=  "#00798c", "Lake"= "#edae49", "Ditch" = "#ff6f61" )) +
   labs(   x = "Year",   y = "Publication ratio") +
   scale_x_continuous(breaks = seq(1990, 2025, by = 5)) +
   theme_minimal() + theme(legend.position = "top", axis.title.x = element_blank(), legend.title = element_blank(), axis.ticks = element_line(color = "black"), panel.grid = element_blank(), axis.line = element_line(color = "black"), axis.text.y = element_text(size=14, colour="black"),  axis.text.x =  element_text(size=14,  colour="black"), axis.title = element_text(size = 16,  colour="black"), legend.text = element_text(size = 14), panel.grid.major.y = element_line(color = "gray80", linewidth  = 0.5) ) +
   geom_point(alpha=0.7, size=3.5) 
-ratio_plot
+ratio_plot_point
+
+dev.off()
+
+
+
+jpeg("Publications_ratio_plot_bar.jpg", units="in", width=8, height=6, res=300)
+
+ratio_plot_bar <- ggplot(subset(dat_ratio, `Publication Years` >= 1990 & `Publication Years` <= 2023 ), aes(x = `Publication Years`, y = Pub_Ratio, fill = factor(term, levels = c( "Stream/River", "Lake", "Ditch" ))) ) +
+  geom_col(position = position_dodge(width = 0.9)) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "black") +
+  scale_fill_manual(values = c( "Stream/River"=  "#00798c", "Lake"= "#edae49", "Ditch" = "#ff6f61" )) +
+  labs(   x = "Year",   y = "Publication ratio") +
+  scale_x_continuous(breaks = seq(1990, 2020, by = 5)) +
+  theme_minimal() + theme(legend.position = "top", axis.title.x = element_blank(), legend.title = element_blank(), axis.ticks = element_line(color = "black"), panel.grid = element_blank(), axis.line = element_line(color = "black"), axis.text.y = element_text(size=14, colour="black"),  axis.text.x =  element_text(size=14,  colour="black"), axis.title = element_text(size = 16,  colour="black"), legend.text = element_text(size = 14), panel.grid.major.y = element_line(color = "gray80", linewidth  = 0.5) ) +
+  scale_y_continuous(breaks = seq(0, 4, by = 1))
+ratio_plot_bar
 
 dev.off()
