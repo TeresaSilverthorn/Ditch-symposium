@@ -7,7 +7,7 @@ library(dplyr)
 library(ggplot2)
 library(data.table)
 library(ggpubr)
-
+#
 # Load your data (modify filenames and column names as needed)
 ditch <- fread("C:/Users/teres/Documents/Conferences/Ditch symposium/Ditch symposium output data/ditch_canal_data_table.txt")  %>%
 mutate(term = "Ditch")
